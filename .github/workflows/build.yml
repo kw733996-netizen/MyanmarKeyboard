@@ -9,10 +9,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Install Android SDK
-        uses: android-actions/setup-android@v3
       - name: Generate Wrapper
-        run: gradle wrapper --gradle-version 8.4
+        run: gradle wrapper --gradle-version 7.6.4
       - name: Build APK
         run: ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
