@@ -9,12 +9,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Generate Wrapper
+        run: gradle wrapper --gradle-version 8.4
       - name: Build APK
-        run: |
-          gradle wrapper
-          ./gradlew assembleDebug
+        run: ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: myanmar-keyboard
